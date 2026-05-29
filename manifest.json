@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "VibeEscape Extractor",
+  "version": "1.1",
+  "description": "Extract all project files from GHL AI Studio vibe code editor and download as a zip.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.gohighlevel.com/*",
+    "*://*.leadconnectorhq.com/*",
+    "*://*.msgsndr.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "VibeEscape Extractor",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.gohighlevel.com/*",
+        "*://*.leadconnectorhq.com/*",
+        "*://*.msgsndr.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
